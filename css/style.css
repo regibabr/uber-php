@@ -1,0 +1,363 @@
+* { padding: 0; margin: 0; border: 0;}
+
+@font-face {font-family: 'Open Sans'; src: url('../fonts/OpenSans.woff');}
+
+
+#menu100porcento{background: #2780e3;width: 100%;height: 50px;}
+
+
+#menu{background: #2780e3;width: 1024;height: 50px;margin: auto; }
+
+#menu p{float:left;margin-top:13px;margin-left: 10px;font-family: 'Open Sans';color: white;}
+
+#usuario{float: left;margin-left: 633px;background: #2780e3;width: 145;height: 50px;}
+
+#sair{float: left;
+background: #2780e3;width: 60;height: 50px;}
+
+#sair a{float: left;margin-left: 5px;margin-top:13px;color: white;text-decoration: none;font-family: 'Open Sans';}
+
+#vertical{float:left;width: 210px ;height: 500 px ;margin-left: 171px;}
+
+#nav li{list-style: none; background: #fff; width: 200px; border-bottom: 0.5px solid #f5f5f5;}
+
+#nav li a {display: block; padding: 12px; border-right: 3px solid #f9f9f9;text-decoration: none; 
+box-shadow: 0px 0px 0px 0px #2780e3;}
+
+#nav li a:hover { border-left: 4px solid #2780e3; }
+
+#nav li ul {display: none;}
+
+#nav li:hover ul {display: block;}
+
+#nav li:hover ul li a{color: #2780e3;  background: #f9f9f9; margin-left: 20px;}
+
+
+
+
+#corpo{width:812px;height: 1100px;float: left;margin-top: 5px;}
+
+#corpo p{font-family: 'Open Sans';font-size: 25px;margin-left: 10px;}
+
+
+#corpo h5{float: left; margin-left: 620px; color:#5cb85c; font-family: 'Open Sans';}
+.negativo{color: #ff0039;font-family: 'Open Sans';}
+.positivo{color: #3fb618;font-family: 'Open Sans';}
+
+
+
+#quadro1{float:left;width: 187px;height: 120px;margin-top: 15px;margin-left: 10px;background: #3fb618;}
+
+#valor1{float:left;width: 187px;height: 90px;background: #3fb618;}
+#valor1 p{float: left;margin-left: 10px;color: white;font-size: 30px; margin-top: 20px;}
+
+#descricao1{float:left;width: 187px;height: 30px;margin-top: 22px;background: #3fb618;}
+
+#descricao1 p{float: left;margin-left: 22px;color: white;font-size: 17px; margin-top: 3px;}
+
+
+
+
+#quadro2{float:left;width: 187px;height: 120px;margin-top: 15px;margin-left: 15px;background: #ff0039;}
+
+#valor2{float:left;width: 187px;height: 90px;background: #ff0039;}
+#valor2 p{float: left;margin-left: 10px;color: white;font-size: 30px; margin-top: 20px;}
+#descricao2{float:left;width: 187px;height: 30px;margin-top: 5px;background: #ff0039;}
+
+#descricao2 p{float: left;margin-left: 13px;color: white;font-size: 17px;}
+
+
+
+
+
+#quadro3{float:left;width: 187px;height: 120px;margin-top: 15px;margin-left: 15px;background: #3fb618;}
+
+#valor3{float:left;width: 187px;height: 90px;background: #3fb618;}
+#valor3 p{float: left;margin-left: 10px;color: white;font-size: 30px; margin-top:20px;}
+#descricao3{float:left;width: 187px;height: 30px;margin-top: 24px;background: #3fb618;}
+
+#descricao3 p{float: left;margin-left: 39px;color: white;font-size: 17px; margin-top:-3px;}
+
+
+
+
+#quadro4{float:left;width: 187px;height: 120px;margin-top: 15px;margin-left: 15px;background:#ff0039;}
+
+#valor4{float:left;width: 187px;height: 90px;background: #ff0039;}
+#valor4 p{float: left;margin-left: 10px;color: white;font-size: 30px; margin-top:20px;}scricao4{float:left;width: 187px;height: 30px;margin-top: 90px;background: #ff0039;}
+
+#descricao4 p{float: left;margin-left: 27px;color: white;font-size: 17px; margin-top:20px;}
+
+
+/*  TRANSACAO */
+
+#quadrotransacao1{float:left;width: 390px;height: 540px;margin-top: 15px;margin-left: 15px;border: 1px solid #ff0039;}
+#titulotransacao1{float:left;width: 392px;height: 30px;background: #ff0039; margin-left:-1px;}
+#titulotransacao1 p{margin-left: 5px; font-family: 'Open Sans';font-size: 17px;color: white; margin-top: 3px;}
+
+#quadrotransacao2{float:left;width: 390px;height: 540px;margin-top: 15px;margin-left: 15px;border: 1px solid #2780e3;}
+#titulotransacao2{float:left;width: 392px;height: 30px;background: #2780e3; margin-left:-1px;}
+#titulotransacao2 p{margin-left: 5px; font-family: 'Open Sans';font-size: 17px;color: white; margin-top: 3px;}
+
+
+#labeldata{margin-left:22px; margin-top:10px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputdata{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:10px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelkm{ margin-top:-80px; float:right; margin-right:83px;font-family: 'Open Sans';font-size: 17px}
+#inputkm{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:30px; margin-top:-50px;
+padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labeltempo{margin-left:20px; margin-top:-10px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputtempo{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:10px; 
+width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelviagens{ margin-top:-89px; float:right; margin-right:72px;font-family: 'Open Sans';font-size: 17px}
+#inputviagens{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:30px; margin-top:-50px;
+padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelgastoalimento{margin-left:20px; margin-top:-15px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputgastoalimento{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:5px;
+ width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelgastoagua{ margin-top:-90px; float:right; margin-right:45px;font-family: 'Open Sans';font-size: 17px}
+#inputgastoagua{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:30px; 
+margin-top:-50px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelgastobala{margin-left:20px; margin-top:-15px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputgastobala{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px;
+ margin-top:2px; width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labeloutrosgastos{ margin-top:-85px; float:right; margin-right:70px;font-family: 'Open Sans';font-size: 17px}
+#inputoutrosgastos{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:30px; 
+margin-top:-55px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#salvardespesa{margin-left:45px; margin-top: -15px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff7518; width: 300px; height: 50px; color:white;}
+
+#salvardespesa:hover{overflow: hidden;border-radius: 10px;}
+
+
+
+/* ------------------------------------------------------------------- */
+
+#labeldata2{margin-left:22px; margin-top:10px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputdata2{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:10px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelganhos{ margin-top:-80px; float:right; margin-right:83px;font-family: 'Open Sans';font-size: 17px}
+#inputganhos{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:30px; margin-top:-50px;
+padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelganhosindicacao{margin-left:20px; margin-top:10px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputganhosindicacao{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:10px; 
+width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+
+#salvarrendimentos{margin-left:45px; margin-top: 222px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#3fb618; width: 300px; height: 50px; color:white;}
+
+#salvarrendimentos:hover{overflow: hidden;border-radius: 10px;}
+
+#labelidmot{color:white;}
+#inputidmot{color:white;}
+
+
+
+/*  CONFIGURAÇÃO */
+
+#quadroconfiguracao{float:left;width: 590px;height: 570px;margin-top: 15px;margin-left: 15px;border: 1px solid #ff7518;}
+#tituloconfiguracao{float:left;width: 592px;height: 30px;background: #ff7518; margin-left:-1px;}
+#tituloconfiguracao p{margin-left: 5px; font-family: 'Open Sans';font-size: 17px;color: white; margin-top: 3px;}
+
+
+
+#labeldata3{margin-left:22px; margin-top:10px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputdata3{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:420px; margin-top:10px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelvalorpneu{margin-left:218px; margin-top:-80px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputvalorpneu{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:-50px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelkmpneu{margin-left:422px; margin-top:-95px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputkmpneu{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:20px; margin-top:-85px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelvaloroleo{margin-left:22px; margin-top:-55px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputvaloroleo{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:420px; margin-top:-30px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelkmoleo{margin-left:222px; margin-top:-110px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputkmoleo{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:-85px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelprecocombustivel{margin-left:422px; margin-top:-175px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputprecocombustivel{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:20px; margin-top:-140px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelconsumo{margin-left:22px; margin-top:-105px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputconsumo{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:420px; margin-top:-80px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelvalorveiculo{margin-left:222px; margin-top:-160px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputvalorveiculo{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:-135px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelvalorseguro{margin-left:422px; margin-top:-215px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputvalorseguro{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:20px; margin-top:-190px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelprestacao{margin-left:22px; margin-top:-155px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputprestacao{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:420px; margin-top:-130px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labeldespesas{margin-left:222px; margin-top:-210px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputdespesas{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:220px; margin-top:-185px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelaluguel{margin-left:422px; margin-top:-265px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputaluguel{border: 0.5px solid #CCC; height: 50px; float:right; margin-right:20px; margin-top:-240px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+
+#salvarconfiguracao{margin-left:195px; margin-top: -200px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff0039; width: 200px; height: 50px; color:white;}
+
+#salvarconfiguracao:hover{overflow: hidden;border-radius: 10px;}
+
+#editarconfiguracao{margin-left:60px; margin-top: -200px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff0039; width: 200px; height: 50px; color:white;}
+
+#editarconfiguracao:hover{overflow: hidden;border-radius: 10px;}
+
+#editarconfigfixo{margin-left:195px; margin-top: -200px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff0039; width: 200px; height: 50px; color:white;}
+
+#editarconfigfixo:hover{overflow: hidden;border-radius: 10px;}
+
+#cancelarconfiguracao{margin-left:330px; margin-top: -200px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff0039; width: 200px; height: 50px; color:white;}
+
+#cancelarconfiguracao:hover{overflow: hidden;border-radius: 10px;}
+
+#mensagem{color: red; font-family: 'Open Sans'; float: right; margin-right: 520px;}
+
+
+
+
+
+
+#chart_div{float: left; margin-top: 10px; margin-left: -70px;}
+#piechart_3d{float: left; margin-top: -280px; margin-left: 470px;}
+
+
+
+
+
+
+
+
+/* TABELA */
+#tabela{margin-top: 20px; width: 790px;height: 230px;border: 1px solid #2780e3; float: left;margin-left: 10px;}
+#titulotabela{float: left;background: #2780e3; width: 790px;height: 30px;}
+#titulotabela p{color: white; font-family: 'Open Sans'; font-size: 17px; text-align: center;}
+
+
+#tabela table{font-family: 'Open Sans';margin-top: 20px; float: left;margin-left: 5px; font-size: 13px;
+ border-collapse: collapse; color: #b4b4b4;
+  border: 1px solid #f4f4f4;width: 760px; }
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+thead{color: #4a4a4a; font-weight: bold;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  TRANSACAO 2 */
+
+#quadrotransacao12{float:left;width: 390px;height: 570px;margin-top: 15px;margin-left: 190px;border: 1px solid #ff0039;}
+#titulotransacao12{float:left;width: 392px;height: 30px;background: #ff0039; margin-left:-1px;}
+#titulotransacao12 p{margin-left: 5px; font-family: 'Open Sans';font-size: 17px;color: white; margin-top: 3px;}
+
+
+#labeldata2{margin-left:22px; margin-top:0px; float:left; font-family: 'Open Sans';font-size: 17px}
+#inputdata2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:220px; margin-top:10px; 
+width:150px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelkm2{ margin-top:-75px; float:right; margin-right:83px;font-family: 'Open Sans';font-size: 17px}
+#inputkm2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:30px; margin-top:-40px;
+padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labeltempo2{margin-left:20px; margin-top:-25px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputtempo2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:220px; margin-top:-5px; 
+width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelviagens2{ margin-top:-84px; float:right; margin-right:72px;font-family: 'Open Sans';font-size: 17px}
+#inputviagens2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:30px; margin-top:-60px;
+padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelgastoalimento2{margin-left:20px; margin-top:-40px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputgastoalimento2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:220px; margin-top:-15px;
+ width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelgastoagua2{ margin-top:-98px; float:right; margin-right:45px;font-family: 'Open Sans';font-size: 17px}
+#inputgastoagua2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:30px; 
+margin-top:-70px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#labelgastobala2{margin-left:20px; margin-top:-53px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputgastobala2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:220px;
+ margin-top:-32px; width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labeloutrosgastos2{ margin-top:-110px; float:right; margin-right:70px;font-family: 'Open Sans';font-size: 17px}
+#inputoutrosgastos2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:30px; 
+margin-top:-88px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+
+#labelganhos2{margin-left:20px; margin-top:-63px; float:left;font-family: 'Open Sans';font-size: 17px}
+#inputganhos2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:220px; margin-top:-45px;
+ width:150px ;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+#labelganhosindicacao2{ margin-top:-118px; float:right; margin-right:45px;font-family: 'Open Sans';font-size: 17px}
+#inputganhosindicacao2{border: 0.5px solid #CCC; height: 40px; float:right; margin-right:30px; 
+margin-top:-100px;padding-left:15px;font-family: 'Open Sans';font-size: 17px; width:150px;}
+
+#salvardespesa22{margin-left:100px; margin-top: -85px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff7518; width: 200px; height: 50px; color:white;}
+
+#salvardespesa22:hover{overflow: hidden;border-radius: 10px;}
+
+
+
+
+
+
+
+
+#alterardespesa2{margin-left:10px; margin-top: -80px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff7518; width: 150px; height: 40px; color:white;}
+
+#alterardespesa2:hover{overflow: hidden;border-radius: 10px;}
+
+#cancelardespesa2{margin-left:230px; margin-top: -80px; float:left;font-family: 'Open Sans';font-size: 17px; 
+background:#ff7518; width: 150px; height: 40px; color:white;}
+
+#cancelardespesa2:hover{overflow: hidden;border-radius: 10px;}
+
+
+
+
+/* ------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
