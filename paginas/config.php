@@ -8,10 +8,10 @@
 
 <?php
 
-$naoduplicar = mysql_query("SELECT * FROM config inner join registrar ON config.id_usuario = registrar.
+$naoduplicar = ("SELECT * FROM config inner join registrar ON config.id_usuario = registrar.
 id_usuario WHERE email_usuario='$login_cookie' ");
-	
-	$registrosEncontrados = mysql_num_rows($naoduplicar);
+	$query=mysqli_query($mysqli,$naoduplicar);
+	$registrosEncontrados = mysqli_num_rows($query);
 	
 	if (isset($_POST['Cadastrar'])) {
 		
@@ -48,7 +48,7 @@ header("Location: configfixo.php");
 preco_medio_combustivel, consumo_combustivel, valor_veiculo, seguro_anual, prestacao_veiculo, despesas_anuais, valor_aluguel) 
 VALUES ('$Cod_Mot', '$Data', '$Custo_pneu', '$Km_troca_pneu', '$Valor_troca_oleo', '$Km_troca_oleo', '$Preco_combustivel',
 '$Consumo_combustivel', '$Valor_veiculo', '$Valor_seguro', '$Prestacao_veiculo','$Despesas_anuais', '$Valor_aluguel')";
-		$data = mysql_query($query) or die(mysql_error());
+		$data = mysqli_query($mysqli,$query) or die(mysqli_error());
 		
 		if ($data) {
 					header("Location: configfixo.php");
@@ -90,9 +90,11 @@ VALUES ('$Cod_Mot', '$Data', '$Custo_pneu', '$Km_troca_pneu', '$Valor_troca_oleo
 
 <?php
 	
-	$saberr = mysql_query("SELECT * FROM registrar WHERE email_usuario='$login_cookie'");
-	$registrosEncontrados = mysql_num_rows($saberr);
-while($saber = mysql_fetch_assoc($saberr)){ ?>
+	$saberr = ("SELECT * FROM registrar WHERE email_usuario='$login_cookie'");
+	$query2=mysqli_query($mysqli,$saberr);
+	$registrosEncontrados = mysqli_num_rows($query2);
+	
+while($saber = mysqli_fetch_assoc($query2)){ ?>
 <label id="labelidmot">Codigo do Motorista </label><input id="inputidmot" type="text" readonly="true" name="codmot" value="<?php echo $saber['id_usuario'];?>"></br>
 <?php 
 	} 

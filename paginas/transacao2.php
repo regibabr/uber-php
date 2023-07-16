@@ -68,7 +68,7 @@
 		tempo_online,numero_viagens, gasto_alimento, gasto_agua, gasto_bala, outros_gastos, ganhos, ganhos_indicacao ) 
 VALUES ('$Cod_Mot', '$Data',  '$Km_rodado','$Tempo_on', 
 '$Viagens', '$Gasto_alimento', '$Gasto_agua', '$Gasto_bala', '$Outros_Gastos', '$Ganhos', '$Ganhos_indicacao')";
-		$data = mysql_query($query) or die(mysql_error());
+		$data = mysqli_query($mysqli,$query) or die(mysqli_error());
 
 		
 		
@@ -121,12 +121,13 @@ function formatar(mascara, documento){
 
 <?php
 	
-	$saberr = mysql_query("SELECT * FROM registrar WHERE email_usuario='$login_cookie'");
+	$saberr = ("SELECT * FROM registrar WHERE email_usuario='$login_cookie'");
+	$query2=mysqli_query($mysqli,$saberr);
 	
 	$email = $saber["email_usuario"];
 	
 
-while($saber = mysql_fetch_assoc($saberr)){ ?>
+while($saber = mysqli_fetch_assoc($query2)){ ?>
 
 <label id="labelidmot">Codigo do Motorista </label><input id="inputidmot" type="text" readonly="true" name="codmot" value="<?php echo $saber['id_usuario'];?>"></br>
 

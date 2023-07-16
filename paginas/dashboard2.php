@@ -188,7 +188,7 @@ $query10=mysqli_query($mysqli,$sqlll);
 
 <div id="valor2">
   <p><?php 
-    if (isset($sa['custo6'])){
+    if (isset($sab['custo6'])){
     echo "R$"." ". number_format($sab['custo6']+ $sa['custo7'],2,",",".");
 }else{
  echo "R$ 0,00";

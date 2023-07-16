@@ -94,7 +94,7 @@ $data2 = (!empty($_POST['data2'])) ? $_POST['data2'] : '';
 
 if(isset($_POST['data'])){
 
- $tabela = mysql_query ("SELECT id_desp_rend,
+ $tabela =  ("SELECT id_desp_rend,
  data_trabalho, email_usuario, tempo_online, numero_viagens,
 					   ganhos, ganhos_indicacao,
 km_rodado, gasto_alimento, gasto_agua, gasto_bala,outros_gastos,
@@ -117,7 +117,7 @@ data_trabalho, email_usuario
 AND email_usuario='$login_cookie' order by data_trabalho
 
  ") ;
-
+$query=mysqli_query($mysqli,$tabela);
  $totalkm=0;
  
  $totalviagens=0;
@@ -137,7 +137,7 @@ $ganhos=0;
 
 
 
- while($dado = mysql_fetch_assoc($tabela)){ 
+ while($dado = mysqli_fetch_assoc($query)){ 
   $totalkm += $dado['km_rodado'];
   $totalviagens += $dado['numero_viagens']; 
   $totalalimento += $dado['gasto_alimento']; 
