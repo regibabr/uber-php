@@ -12,7 +12,7 @@ if ($row<=0) {
 	echo "<h3>E-MAIL OU SENHA INVÁLIDA. </br>POR FAVOR TENTE NOVAMENTE.</h3>";
 }else{
 	setcookie("login",$email);
-	header("location: dashboard.php");
+	header("location: dashboard2.php");
 }
 }
 		

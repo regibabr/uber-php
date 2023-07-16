@@ -2,8 +2,9 @@
 
 include("header.php");
 
-$saberr = mysql_query("SELECT * FROM registrar WHERE email_usuario='$login_cookie'");
-	$saber = mysql_fetch_assoc($saberr);
+$saberr = ("SELECT * FROM registrar WHERE email_usuario='$login_cookie'");
+$query= mysqli_query($mysqli,$saberr);
+	$saber= mysqli_fetch_assoc($query);
 	$email = $saber["email_usuario"];
 
 
@@ -37,83 +38,91 @@ $saberr = mysql_query("SELECT * FROM registrar WHERE email_usuario='$login_cooki
 <p>Dashboard</p>
 <h5>
 <?php
-$configsemana = mysql_query("SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
+$configsemana = ("SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
 (preco_medio_combustivel/consumo_combustivel)*km_rodado + gasto_alimento + gasto_agua + gasto_bala + outros_gastos)  
 as SaldoCustoSemana, email_usuario FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
 inner join desp_rend on desp_rend.id_usuario = config.id_usuario 
 AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
 AND email_usuario='$login_cookie'");
-  $custoconfigsemana = mysql_fetch_assoc($configsemana);
+$query2=mysqli_query($mysqli,$configsemana);
+  $custoconfigsemana = mysqli_fetch_assoc($query2);
 ?>
 
 <?php
-$despesassemana = mysql_query("SELECT (valor_aluguel/4.285714 + (valor_veiculo*0.20)/52.14286 + seguro_anual/52.14286 + prestacao_veiculo/4.285714 +
+$despesassemana =("SELECT (valor_aluguel/4.285714 + (valor_veiculo*0.20)/52.14286 + seguro_anual/52.14286 + prestacao_veiculo/4.285714 +
 despesas_anuais/52.14286)  
 as SaldoCustoSemana2, email_usuario FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
 inner join desp_rend on desp_rend.id_usuario = config.id_usuario 
 AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
 AND email_usuario='$login_cookie'");
-  $custodespesassemana = mysql_fetch_assoc($despesassemana);
+$query3=mysqli_query($mysqli,$despesassemana);
+  $custodespesassemana = mysqli_fetch_assoc($query3);
 ?>
 
 <?php
-$ganhosemana = mysql_query("SELECT SUM(ganhos + ganhos_indicacao) as SaldoGanhosSemana,  email_usuario
+$ganhosemana = ("SELECT SUM(ganhos + ganhos_indicacao) as SaldoGanhosSemana,  email_usuario
   FROM desp_rend
   inner join registrar ON registrar.id_usuario = desp_rend.id_usuario
   AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
   AND email_usuario='$login_cookie'");
-  $ganhossemana = mysql_fetch_assoc($ganhosemana);
+  $query4=mysqli_query($mysqli,$ganhosemana);
+  $ganhossemana = mysqli_fetch_assoc($query4);
 ?>
-<?php 
-$numsemana = number_format($ganhossemana['SaldoGanhosSemana']-($custoconfigsemana['SaldoCustoSemana'] + $custodespesassemana['SaldoCustoSemana2']),2,",",".");
+<?php if (isset($numsemana['SaldoGanhosSemana']) && isset($custoconfig['SaldoCustoSemana']) && isset($custodespesas['custo50SaldoCustoSemana2'])) {
+$numsemana = number_format($ganhossemana['SaldoGanhosSemana
+']-($custoconfigsemana['SaldoCustoSemana'] + $custodespesassemana['SaldoCustoSemana2']),2,",",".");
 if($numsemana < 0){
 echo "<span class='negativo'>Saldo da semana R$" ." "." $numsemana</span>";
 }else{
 echo "<span class='positivo'>Saldo da semana R$" ." "." $numsemana</span>";	
-}?></h5>	
+}}?></h5>	
 
 <!-- SALDO MÊS -->
 
 <h5>
 <?php
-$configmes = mysql_query("SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
+$configmes =("SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
 (preco_medio_combustivel/consumo_combustivel)*km_rodado + gasto_alimento + gasto_agua + gasto_bala + outros_gastos)  
 as SaldoCustoMes, email_usuario FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
 inner join desp_rend on desp_rend.id_usuario = config.id_usuario 
 WHERE MONTH( data_trabalho) = MONTH( NOW( ) )
 AND email_usuario='$login_cookie'");
-  $custoconfigmes = mysql_fetch_assoc($configmes);
+$query5=mysqli_query($mysqli,$configmes);
+  $custoconfigmes = mysqli_fetch_assoc($query5);
 ?>
 
 <?php
-$despesasmes = mysql_query("SELECT (valor_aluguel + (valor_veiculo*0.20)/12 + seguro_anual/12 + prestacao_veiculo +
+$despesasmes = ("SELECT (valor_aluguel + (valor_veiculo*0.20)/12 + seguro_anual/12 + prestacao_veiculo +
 despesas_anuais/12)  
 as SaldoCustoMes2, email_usuario FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
 inner join desp_rend on desp_rend.id_usuario = config.id_usuario 
 WHERE MONTH(data_trabalho) = MONTH( NOW( ) )
 AND email_usuario='$login_cookie'");
-  $custodespesasmes = mysql_fetch_assoc($despesasmes);
+$query6=mysqli_query($mysqli,$despesasmes);
+  $custodespesasmes = mysqli_fetch_assoc($query6);
 ?>
 
 <?php
-$ganhomes = mysql_query("SELECT SUM(ganhos + ganhos_indicacao) as SaldoGanhoMes,  email_usuario
+$ganhomes = ("SELECT SUM(ganhos + ganhos_indicacao) as SaldoGanhoMes,  email_usuario
   FROM desp_rend
   inner join registrar ON registrar.id_usuario = desp_rend.id_usuario
   WHERE MONTH(data_trabalho) = MONTH( NOW( ) )
   AND email_usuario='$login_cookie'");
-  $ganhosmes = mysql_fetch_assoc($ganhomes);
+  $query7=mysqli_query($mysqli,$ganhomes);
+  $ganhosmes = mysqli_fetch_assoc($query7);
 ?>
 <?php 
+ if (isset($nummes['SaldoGanhosMes']) && isset($custoconfig['SaldoCustoMes']) && isset($custodespesas['SaldoCustoMes2'])) {
 $nummes = number_format($ganhosmes['SaldoGanhoMes']-($custoconfigmes['SaldoCustoMes'] + $custodespesasmes['SaldoCustoMes2']),2,",",".");
 if($nummes < 0){
 echo "<span class='negativo'>Saldo do mês R$" ." "." $nummes</span>";
 }else{
 echo "<span class='positivo'>Saldo do mês R$" ." "." $nummes</span>";	
-}?></h5>
+}}?></h5>
 	
 
 	
@@ -124,7 +133,7 @@ echo "<span class='positivo'>Saldo do mês R$" ." "." $nummes</span>";
 <?php
 
 
-$sql = mysql_query("SELECT SUM(ganhos + ganhos_indicacao) as custo5,  email_usuario
+$sql = ("SELECT SUM(ganhos + ganhos_indicacao) as custo5,  email_usuario
   FROM desp_rend
   inner join registrar ON registrar.id_usuario = desp_rend.id_usuario
    
@@ -133,7 +142,8 @@ $sql = mysql_query("SELECT SUM(ganhos + ganhos_indicacao) as custo5,  email_usua
   AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
   
   AND email_usuario='$login_cookie'");
-  $sabe = mysql_fetch_assoc($sql);
+  $query8=mysqli_query($mysqli,$sql);
+  $sabe = mysqli_fetch_assoc($query8);
 ?>
 
 <div id="valor1">
@@ -149,7 +159,7 @@ $sql = mysql_query("SELECT SUM(ganhos + ganhos_indicacao) as custo5,  email_usua
 
 <div id="quadro2">
 <?php
-$sqll = mysql_query("SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
+$sqll = ("SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
 (preco_medio_combustivel/consumo_combustivel)*km_rodado + gasto_alimento + gasto_agua + gasto_bala + outros_gastos)  
 as custo6, email_usuario FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
@@ -157,11 +167,12 @@ inner join desp_rend on desp_rend.id_usuario = config.id_usuario
 WHERE MONTH( data_trabalho ) = MONTH( NOW( ) )
  AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
 AND email_usuario='$login_cookie'");
-  $sab = mysql_fetch_assoc($sqll);
+$query9=mysqli_query($mysqli,$sqll);
+  $sab = mysqli_fetch_assoc($query9);
 ?>
 
 <?php
-$sqlll = mysql_query("SELECT (valor_aluguel/4.285714 + (valor_veiculo*0.20)/52.14286 + seguro_anual/52.14286 + prestacao_veiculo/4.285714 +
+$sqlll = ("SELECT (valor_aluguel/4.285714 + (valor_veiculo*0.20)/52.14286 + seguro_anual/52.14286 + prestacao_veiculo/4.285714 +
 despesas_anuais/52.14286)  
 as custo7, email_usuario FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
@@ -169,13 +180,20 @@ inner join desp_rend on desp_rend.id_usuario = config.id_usuario
 WHERE MONTH( data_trabalho ) = MONTH( NOW( ) )
 AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
 AND email_usuario='$login_cookie'");
-  $sa = mysql_fetch_assoc($sqlll);
+$query10=mysqli_query($mysqli,$sqlll);
+  $sa = mysqli_fetch_assoc($query10);
 ?>
 
 
 
 <div id="valor2">
-<p><?php echo "R$"." ". number_format($sab['custo6']+ $sa['custo7'],2,",",".");?><p/>
+  <p><?php 
+    if (isset($sa['custo6'])){
+    echo "R$"." ". number_format($sab['custo6']+ $sa['custo7'],2,",",".");
+}else{
+ echo "R$ 0,00";
+}
+  ?><p/>
 <div id="descricao2">
 <p>Despesa da semana</p>
 </div>
@@ -192,13 +210,14 @@ AND email_usuario='$login_cookie'");
 <?php
 
 $mess_atual = date("m");
-$saberree = mysql_query( "SELECT SUM(ganhos + ganhos_indicacao) 
+$saberree = ( "SELECT SUM(ganhos + ganhos_indicacao) 
 as custo3, email_usuario
 FROM desp_rend
 inner join registrar ON registrar.id_usuario = desp_rend.id_usuario 
 
 WHERE MONTH(data_trabalho) = '$mess_atual'  and email_usuario='$login_cookie'");
-$saberee = mysql_fetch_assoc($saberree);	
+$query11=mysqli_query($mysqli,$saberree);
+$saberee = mysqli_fetch_assoc($query11);	
 	
 ?>
 
@@ -218,32 +237,41 @@ $saberee = mysql_fetch_assoc($saberree);
 <?php
 
 $mes_atual = date("m");
-$saberr = mysql_query( "SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
+$saberr = ( "SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
 (preco_medio_combustivel/consumo_combustivel)*km_rodado + gasto_alimento + gasto_agua + gasto_bala + outros_gastos) 
 as custo, email_usuario
 FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
 inner join desp_rend on desp_rend.id_usuario = config.id_usuario 
 WHERE MONTH(data_trabalho) = '$mes_atual'  and email_usuario='$login_cookie'");
-$saber = mysql_fetch_assoc($saberr);	
+$query12=mysqli_query($mysqli,$saberr);
+$saber = mysqli_fetch_assoc($query12);	
 	
 ?>
 
 <?php
 
 $mess_atual = date("m");
-$saberre = mysql_query( "SELECT (valor_aluguel + (valor_veiculo*0.20)/12 + seguro_anual/12 + prestacao_veiculo+
+$saberre = ( "SELECT (valor_aluguel + (valor_veiculo*0.20)/12 + seguro_anual/12 + prestacao_veiculo+
 despesas_anuais/12) 
 as custo2, email_usuario
 FROM config 
 inner join registrar ON registrar.id_usuario = config.id_usuario 
 inner join desp_rend on desp_rend.id_usuario = config.id_usuario 
 WHERE MONTH(data_trabalho) = '$mess_atual'  and email_usuario='$login_cookie'");
-$sabere = mysql_fetch_assoc($saberre);	
+$query13=mysqli_query($mysqli,$saberre);
+$sabere = mysqli_fetch_assoc($query13);	
 	
 ?>
 
-<p><?php echo "R$"." ". number_format($sabere['custo2'] + $saber['custo']  ,2,",",".");?><p/>
+<p><?php 
+if (isset($sabere['custo2'])){
+echo "R$"." ". number_format($sabere['custo2'] + $saber['custo'],2,",",".");
+}else{
+  echo "R$ 0,00";
+}
+
+?><p/>
 <div id="descricao4">
 <p>Despesa do mês</p>
 </div>
@@ -274,7 +302,7 @@ $sabere = mysql_fetch_assoc($saberre);
 		
         </thead>
  <?php 
- $tabela = mysql_query ("SELECT id_desp_rend,
+ $tabela = ("SELECT id_desp_rend,
  data_trabalho, email_usuario, tempo_online, numero_viagens,
 					   ganhos, ganhos_indicacao,
 km_rodado, gasto_alimento, gasto_agua, gasto_bala,outros_gastos					   
@@ -284,6 +312,7 @@ km_rodado, gasto_alimento, gasto_agua, gasto_bala,outros_gastos
   WHERE MONTH( data_trabalho ) = MONTH( NOW( ) )
    AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
   AND email_usuario='$login_cookie' order by data_trabalho ") ;
+  $query14=mysqli_query($mysqli,$tabela);
 
  $totalkm=0;
  $totaltempo=0;
@@ -296,7 +325,7 @@ km_rodado, gasto_alimento, gasto_agua, gasto_bala,outros_gastos
 $totalindicacao=0;
 
 
- while($dado = mysql_fetch_assoc($tabela)){ 
+ while($dado = mysqli_fetch_assoc($query14)){ 
   $totalkm += $dado['km_rodado'];
   $totalviagens += $dado['numero_viagens']; 
   $totalalimento += $dado['gasto_alimento']; 
@@ -336,14 +365,15 @@ $totalindicacao=0;
 
 <!-- Consulta para somar o total do tempo Online em horas-->
  <?php 
- $tabela2 = mysql_query ("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( tempo_online ) ) ) AS total_tempo from desp_rend 
+ $tabela2 = ("SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( tempo_online ) ) ) AS total_tempo from desp_rend 
  inner join registrar ON registrar.id_usuario = desp_rend.id_usuario 
  WHERE MONTH( data_trabalho ) = MONTH( NOW( ) ) AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
   AND email_usuario='$login_cookie' order by data_trabalho ") ;
+  $query15=mysqli_query($mysqli,$tabela2);
 
  $totaltempo=0;
  
- while($dado2 = mysql_fetch_assoc($tabela2)){ 
+ while($dado2 = mysqli_fetch_assoc($query15)){ 
   $totaltempo = $dado2['total_tempo'];
   
  ?>
@@ -407,7 +437,7 @@ $totalindicacao=0;
         </thead>
  <?php 
 
-$tab2 = mysql_query( "SELECT (custo_pneu*4*km_rodado)/km_troca_pneu 
+$tab2 =( "SELECT (custo_pneu*4*km_rodado)/km_troca_pneu 
 as custoPneu, (custo_troca_oleo*km_rodado)/km_troca_oleo as custoOleo, (preco_medio_combustivel/consumo_combustivel)*km_rodado as custoCombustivel, (valor_veiculo*0.20)/365 as depreciacao,
 seguro_anual/365 as custoSeguro, prestacao_veiculo/30 as Prestacao, despesas_anuais/365 as Anuais,
 data_trabalho, email_usuario
@@ -417,6 +447,7 @@ inner join desp_rend on desp_rend.id_usuario = config.id_usuario
 WHERE MONTH( data_trabalho ) = MONTH( NOW( ) )
    AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )  
    and email_usuario='$login_cookie' order by data_trabalho");
+   $query16=mysqli_query($mysqli,$tab2);
 $custoPneu =0;
 $custoOleo=0;
 $custoCombustivel=0;
@@ -425,7 +456,7 @@ $custoSeguro=0;
 $valorPrestacao=0;
 $despesasAnuais=0;
 
- while($dado = mysql_fetch_assoc($tab2)){ 
+ while($dado = mysqli_fetch_assoc($query16)){ 
   $custoPneu += $dado['custoPneu'];
   $custoOleo += $dado['custoOleo'];
   $custoCombustivel += $dado ['custoCombustivel'];
@@ -486,7 +517,7 @@ $custo = array();
 
 $i = 0;
 
-$sq = mysql_query( "SELECT 
+$sq =( "SELECT 
 (CASE WEEKDAY(data_trabalho) 
                        when 0 then 'Segunda'
                        when 1 then 'Terça'
@@ -507,8 +538,9 @@ config.id_usuario inner join desp_rend on desp_rend.id_usuario = config.id_usuar
   AND YEARWEEK (data_trabalho ,1) = YEARWEEK( NOW( ),1 )
   
   AND email_usuario='$login_cookie' order by data_trabalho" );
+  $query17=mysqli_query($mysqli,$sq);
  
-while ($row = mysql_fetch_assoc($sq)){
+while ($row = mysqli_fetch_assoc($query17)){
      
 	$dia[$i] = $row['DiaDaSemana'];
  $ganhos[$i] = $row['ganhos'];
@@ -578,7 +610,7 @@ while ($row = mysql_fetch_assoc($sq)){
 <?php
 
 $mes_atual = date("m");
-$GraficoCusto = mysql_query( "SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
+$GraficoCusto = ( "SELECT SUM((custo_pneu*4*km_rodado)/km_troca_pneu + (custo_troca_oleo*km_rodado)/km_troca_oleo +
 (preco_medio_combustivel/consumo_combustivel)*km_rodado + gasto_alimento + gasto_agua + gasto_bala + outros_gastos) 
 as GraficCusto, (valor_aluguel + (valor_veiculo*0.20)/12 + seguro_anual/12 + prestacao_veiculo+
 despesas_anuais/12) 
@@ -587,7 +619,8 @@ FROM config
 inner join registrar ON registrar.id_usuario = config.id_usuario 
 inner join desp_rend on desp_rend.id_usuario = config.id_usuario 
 WHERE MONTH(data_trabalho) = '$mes_atual'  and email_usuario='$login_cookie'");
-	while ($somar = mysql_fetch_assoc($GraficoCusto)){
+$query18=mysqli_query($mysqli,$GraficoCusto);
+	while ($somar = mysqli_fetch_assoc($query18)){
 		$custografico = $somar['GraficCusto'] + $somar['GraficCusto2'];
 	}
 ?>
@@ -596,15 +629,16 @@ WHERE MONTH(data_trabalho) = '$mes_atual'  and email_usuario='$login_cookie'");
 <?php
 
 $mess_atual = date("m");
-$GraficoRenda = mysql_query( "SELECT SUM(ganhos + ganhos_indicacao) 
+$GraficoRenda = ( "SELECT SUM(ganhos + ganhos_indicacao) 
 as graficRenda, email_usuario
 FROM desp_rend
 inner join registrar ON registrar.id_usuario = desp_rend.id_usuario 
 
 WHERE MONTH(data_trabalho) = '$mess_atual'  and email_usuario='$login_cookie'");
+$query19=mysqli_query($mysqli,$GraficoRenda);
 
 
-while ($somarRenda = mysql_fetch_assoc($GraficoRenda)){
+while ($somarRenda = mysqli_fetch_assoc($query19)){
 		$rendagrafico = $somarRenda['graficRenda'];
 	}
 	
